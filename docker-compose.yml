@@ -1,0 +1,18 @@
+version: '3'
+services:
+  robotframework:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./tests:/opt/robotframework/tests
+      - ./results:/opt/robotframework/results
+    
+  ride:
+    image: ivonet/robotframework-ride:latest
+    volumes:
+      - ./tests:/opt/robotframework
+    ports:
+      - 8080:8080
+
+
